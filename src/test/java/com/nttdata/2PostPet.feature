@@ -1,19 +1,17 @@
-Feature: Actualizar el pet con id = 827
-
+Feature: Crear un pet id = 827
   Background:
     * url 'https://petstore.swagger.io/v2/pet'
     * header Accept = 'application/json'
 
-  Scenario: Actualizar un pet existente y válido
-
+  Scenario: Crear la mascota exitosamente
     Given path ''
     And request
       """
       {
         "id": 827,
         "category": {
-          "id": 1,
-          "name": "gato"
+          "id": 2,
+          "name": "perro"
         },
         "name": "krypto",
         "photoUrls": [
@@ -22,11 +20,11 @@ Feature: Actualizar el pet con id = 827
         "tags": [
           {
             "id": 1,
-            "name": "siamés"
+            "name": "salchicha"
           }
         ],
         "status": "available"
       }
       """
-    When method put
+    When method post
     Then status 200
